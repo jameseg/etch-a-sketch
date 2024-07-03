@@ -2,6 +2,9 @@ const container = document.querySelector(".boxes-container")
 const button = document.querySelector("button")
 
 function drawGrid(parent, rowItems = 16) {
+  if (rowItems > 100) {
+    rowItems = 100
+  }
   const squareSidePercentage = (100 / rowItems)
 
   for (let i = 0; i < rowItems * rowItems; i++) {
