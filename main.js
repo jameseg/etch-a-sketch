@@ -1,6 +1,15 @@
 const container = document.querySelector(".boxes-container")
 const button = document.querySelector("button")
 
+
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 255)
+  const g = Math.floor(Math.random() * 255)
+  const b = Math.floor(Math.random() * 255)
+
+  return [r, g, b]
+}
+
 function drawGrid(parent, rowItems = 16) {
   if (rowItems > 100) {
     rowItems = 100
@@ -11,7 +20,8 @@ function drawGrid(parent, rowItems = 16) {
     const box = document.createElement("div")
 
     box.addEventListener("mouseover", () => {
-      box.style.backgroundColor = "gray"
+      const colors = getRandomColor()
+      box.style.backgroundColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`
     })
 
     box.classList.add("box")
