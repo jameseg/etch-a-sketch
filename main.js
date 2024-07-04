@@ -20,8 +20,15 @@ function drawGrid(parent, rowItems = 16) {
     const box = document.createElement("div")
 
     box.addEventListener("mouseover", () => {
+      let currentOpacity = +box.style.opacity
       const colors = getRandomColor()
+
       box.style.backgroundColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`
+
+      if (currentOpacity < 1) {
+        box.style.opacity = (currentOpacity + 0.1)
+        currentOpacity = box.style.opacity
+      }
     })
 
     box.classList.add("box")
